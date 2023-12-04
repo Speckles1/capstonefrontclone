@@ -18,7 +18,7 @@ const Footer = () => {
                 <FooterLinksWrapper>
                     <FooterLinkitems>
                     
-                    <FooterLinkTitle>&copy; 2023 Harry's Toys ALL RIGHTS RESERVED </FooterLinkTitle>
+                    <FooterLinkTitle>&copy; 2023 Harrys Toys ALL RIGHTS RESERVED </FooterLinkTitle>
                          
                   
                     </FooterLinkitems>

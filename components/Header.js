@@ -95,7 +95,7 @@ export default function Header() {
       <Center>
         <Wrapper>
         
-          <Logo href={"/"}> Harry's Toys 
+          <Logo href={"/"}> Harrys Toys 
           &nbsp;<img href={"/"} src="https://i.ibb.co/dgtLkCW/logogo.png"  alt="aa" width="50" height="50"  />
           </Logo>       
           <StyledNav mobileNavActive={mobileNavActive}>
