@@ -1,5 +1,6 @@
 import { createChatBotMessage } from 'react-chatbot-kit';
 
+
 const botName = 'Spiderbot!';
 
 const config = {
