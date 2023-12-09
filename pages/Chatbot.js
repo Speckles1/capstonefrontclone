@@ -1,8 +1,9 @@
 import Chatbot from 'react-chatbot-kit'
 import 'react-chatbot-kit/build/main.css'
-import config from '@/components/Config.js';
-import MessageParser from '../components/MessageParser';
-import ActionProvider from '@/components/ActionProvider.js';
+
+import config from '@/components/Config';
+import MessageParser from '@/components/MessageParser';
+import ActionProvider from '@/components/ActionProvider';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
