@@ -2,8 +2,8 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 
 
 const botName = 'Spiderbot!';
-
-const config = {
+export default Config;
+const Config = {
   initialMessages: [createChatBotMessage(`Hi! I'm ${botName}, I can only answer questions with the data given to me by my creator which is about our website, feel free to ask! `)],
   botName: botName,
   customStyles: {
@@ -19,4 +19,3 @@ const config = {
   },
 };
 
-export default config;
