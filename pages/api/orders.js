@@ -8,5 +8,5 @@ export default async function handle(req, res) {
   const { userId } = getAuth(req);
   const user = await clerkClient.users.getUser(userId);
 
-  res.json(await Order.find({ userEmail: user.email }));
+  res.json(await Order.find({ userEmail: user.primaryEmailAddressId }));
 }
