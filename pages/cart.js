@@ -103,10 +103,6 @@ export default function CartPage() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(session);
-  }, [session]);
-
-  useEffect(() => {
     if (cartProducts.length > 0) {
       axios.post('/api/cart', { ids: cartProducts }).then(response => {
         setProducts(response.data);
