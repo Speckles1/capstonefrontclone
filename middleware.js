@@ -8,12 +8,14 @@ export default authMiddleware({
     '/Chatbot',
     '/chatpage',
     '/products',
+    '/product/(.*)',
     '/search',
     '/api/products',
     '/api/settings',
     '/api/address',
     '/api/wishlist',
     '/api/orders',
+    '/api/reviews',
   ],
 });
 
