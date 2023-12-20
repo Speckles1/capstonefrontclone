@@ -1,6 +1,6 @@
-import {createGlobalStyle} from "styled-components";
-import {CartContextProvider} from "@/components/CartContext";
-import {SessionProvider} from "next-auth/react";
+import { createGlobalStyle } from 'styled-components';
+import { CartContextProvider } from '@/components/CartContext';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -17,15 +17,21 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export default function App({ Component, pageProps: {session, ...pageProps } }) {
+export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyles />
-      <SessionProvider session={session}>
+      <ClerkProvider
+        appearance={{
+          variables: {
+            colorPrimary: '#FF0000',
+          },
+        }}
+      >
         <CartContextProvider>
           <Component {...pageProps} />
         </CartContextProvider>
-      </SessionProvider>
+      </ClerkProvider>
     </>
   );
 }
