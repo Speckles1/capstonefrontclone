@@ -10,17 +10,22 @@ export default async function handle(req, res) {
 
   if (req.method === 'POST') {
     const { product } = req.body;
-    const wishedDoc = await WishedProduct.findOne({ userEmail: user.email, product });
+    const wishedDoc = await WishedProduct.findOne({
+      userEmail: user.primaryEmailAddressId,
+      product,
+    });
     if (wishedDoc) {
       await WishedProduct.findByIdAndDelete(wishedDoc._id);
       res.json({ wishedDoc });
     } else {
-      await WishedProduct.create({ userEmail: user.email, product });
+      await WishedProduct.create({ userEmail: user.primaryEmailAddressId, product });
       res.json('created');
     }
   }
 
   if (req.method === 'GET') {
-    res.json(await WishedProduct.find({ userEmail: user.email }).populate('product'));
+    res.json(
+      await WishedProduct.find({ userEmail: user.primaryEmailAddressId }).populate('product')
+    );
   }
 }
