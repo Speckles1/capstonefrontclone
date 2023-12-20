@@ -1,12 +1,12 @@
-import {mongooseConnect} from "@/lib/mongoose";
-import {getServerSession} from "next-auth";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import {Order} from "@/models/Order";
+import { mongooseConnect } from '@/lib/mongoose';
+import { Order } from '@/models/Order';
+import { clerkClient } from '@clerk/nextjs';
+import { getAuth } from '@clerk/nextjs/server';
 
 export default async function handle(req, res) {
   await mongooseConnect();
-  const {user} = await getServerSession(req, res, authOptions);
-  res.json(
-    await Order.find({userEmail:user.email})
-  );
+  const { userId } = getAuth(req);
+  const user = await clerkClient.users.getUser(userId);
+
+  res.json(await Order.find({ userEmail: user.email }));
 }
