@@ -37,6 +37,11 @@ const WishedProductsGrid = styled.div`
   gap: 40px;
 `;
 
+const AccountBtns = styled.div`
+  display: grid;
+  gap: 8px;
+`;
+
 export default function AccountPage() {
   const { session } = useSession();
   const [name, setName] = useState('');
@@ -62,6 +67,9 @@ export default function AccountPage() {
   }
   function login() {
     router.push('/sign-in');
+  }
+  function signUp() {
+    router.push('/sign-up');
   }
   function saveAddress() {
     const data = { name, email, city, streetAddress, postalCode, country };
@@ -149,7 +157,7 @@ export default function AccountPage() {
           <div>
             <RevealWrapper delay={100}>
               <WhiteBox>
-                <h2>{session ? 'Account details' : 'Login'}</h2>
+                <h2>{session ? 'Account details' : 'Login or Sign up'}</h2>
                 {!addressLoaded && <Spinner fullWidth={true} />}
                 {addressLoaded && session && (
                   <>
@@ -209,9 +217,12 @@ export default function AccountPage() {
                   </Button>
                 )}
                 {!session && (
-                  <Button primary onClick={login}>
-                    Login
-                  </Button>
+                  <AccountBtns>
+                    <Button primary onClick={login}>
+                      Login
+                    </Button>
+                    <Button onClick={signUp}>Sign up</Button>
+                  </AccountBtns>
                 )}
               </WhiteBox>
             </RevealWrapper>
